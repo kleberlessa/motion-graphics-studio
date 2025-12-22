@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Graphics Studio - Linux</title>
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <h1><i class="fas fa-play-circle"></i> Motion Studio</h1>
+                <p class="subtitle">Linux Edition</p>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <h3><i class="fas fa-bezier-curve"></i> Animações</h3>
+                    <button class="nav-btn active" data-section="logo">
+                        <i class="fas fa-draw-polygon"></i> Logo Animado
+                    </button>
+                    <button class="nav-btn" data-section="text">
+                        <i class="fas fa-text-height"></i> Motion Text
+                    </button>
+                    <button class="nav-btn" data-section="mograph">
+                        <i class="fas fa-wave-square"></i> Motion Graphics
+                    </button>
+                </div>
+
+                <div class="nav-section">
+                    <h3><i class="fas fa-sliders-h"></i> Controles</h3>
+                    <div class="control-group">
+                        <label for="timeline-speed"><i class="fas fa-tachometer-alt"></i> Velocidade</label>
+                        <input type="range" id="timeline-speed" min="0.1" max="3" step="0.1" value="1">
+                        <span id="speed-value">1.0x</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="easing-select"><i class="fas fa-chart-line"></i> Easing</label>
+                        <select id="easing-select">
+                            <option value="power2.out">Power2 Out</option>
+                            <option value="back.out(1.7)">Back Out</option>
+                            <option value="elastic.out(1,0.3)">Elastic</option>
+                            <option value="bounce.out">Bounce</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3><i class="fas fa-palette"></i> Cores</h3>
+                    <div class="color-grid">
+                        <div class="color-btn" style="background: #00ff88;" data-color="#00ff88"></div>
+                        <div class="color-btn" style="background: #ff0088;" data-color="#ff0088"></div>
+                        <div class="color-btn" style="background: #0088ff;" data-color="#0088ff"></div>
+                        <div class="color-btn" style="background: #ffaa00;" data-color="#ffaa00"></div>
+                        <div class="color-btn" style="background: #9d4edd;" data-color="#9d4edd"></div>
+                        <div class="color-btn" style="background: #ff6d00;" data-color="#ff6d00"></div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="export-section">
+                <button id="export-gif" class="export-btn">
+                    <i class="fas fa-file-export"></i> Exportar GIF
+                </button>
+                <button id="export-svg" class="export-btn">
+                    <i class="fas fa-download"></i> Salvar SVG
+                </button>
+            </div>
+        </aside>
+
+        <!-- Área Principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <h2 id="section-title">Logo Animado</h2>
+                <div class="header-controls">
+                    <button id="play-btn" class="control-btn">
+                        <i class="fas fa-play"></i> Play
+                    </button>
+                    <button id="pause-btn" class="control-btn">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="reset-btn" class="control-btn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                    <button id="record-btn" class="control-btn record">
+                        <i class="fas fa-circle"></i> Gravar
+                    </button>
+                </div>
+            </header>
+
+            <!-- Canvas Principal -->
+            <div class="canvas-container">
+                <div class="canvas-wrapper" id="canvas-wrapper">
+                    <!-- SVG/Canvas será injetado aqui -->
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-container">
+                    <div class="timeline-track" id="timeline">
+                        <div class="timeline-cursor" id="timeline-cursor"></div>
+                    </div>
+                    <div class="timeline-controls">
+                        <span>0:00</span>
+                        <input type="range" id="timeline-scrubber" min="0" max="100" value="0">
+                        <span>5:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Painel de Propriedades -->
+            <div class="properties-panel">
+                <h3><i class="fas fa-sliders-h"></i> Propriedades</h3>
+                <div class="properties-grid" id="properties-container">
+                    <!-- Propriedades dinâmicas serão injetadas aqui -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Painel de Assets -->
+        <aside class="assets-panel">
+            <h3><i class="fas fa-folder-open"></i> Assets</h3>
+
+            <!-- Upload de SVG -->
+            <div class="upload-area" id="upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Arraste seu SVG aqui</p>
+                <input type="file" id="svg-upload" accept=".svg" hidden>
+                <button id="browse-btn" class="browse-btn">Procurar</button>
+            </div>
+
+            <!-- Textos Pré-definidos -->
+            <div class="assets-section">
+                <h4><i class="fas fa-font"></i> Textos</h4>
+                <div class="asset-list">
+                    <div class="asset-item" data-text="Motion Graphics">Motion Graphics</div>
+                    <div class="asset-item" data-text="Linux Studio">Linux Studio</div>
+                    <div class="asset-item" data-text="Animações 2D">Animações 2D</div>
+                    <div class="asset-item" data-text="Vetor Animado">Vetor Animado</div>
+                </div>
+            </div>
+
+            <!-- Efeitos Pré-definidos -->
+            <div class="assets-section">
+                <h4><i class="fas fa-magic"></i> Efeitos</h4>
+                <div class="effects-grid">
+                    <button class="effect-btn" data-effect="draw">Draw SVG</button>
+                    <button class="effect-btn" data-effect="morph">Morph</button>
+                    <button class="effect-btn" data-effect="spin">Spin</button>
+                    <button class="effect-btn" data-effect="pulse">Pulse</button>
+                    <button class="effect-btn" data-effect="wave">Wave</button>
+                    <button class="effect-btn" data-effect="float">Float</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="src/js/main.js" type="module"></script>
+</body>
+</html>
