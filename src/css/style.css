@@ -543,3 +543,11 @@ select {
     display: none;
   }
 }
+<<<<<<< HEAD
+=======
+.canvas-wrapper {
+    /* ... mantenha o que já existe ... */
+    will-change: transform;
+    contain: layout paint;
+}
+>>>>>>> a56742b (fix: ícones externos e performance)
