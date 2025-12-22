@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD
 title: Motion Graphics Studio - Linux
 emoji: 🎬
 colorFrom: blue
@@ -295,16 +294,3 @@ Made with ❤️ for the Linux creative community
 **Repository Description for GitHub/Hugging Face:**
 
 "Motion Graphics Studio for Linux: An open-source toolkit for creating 2D vector animations, motion text, and logo animations using JavaScript. Features real-time preview, SVG animation, and seamless integration with Linux creative tools like Inkscape and GIMP. Perfect for designers and developers on Zorin OS and other Linux distributions."
-=======
-title: Motion Graphics Studio
-emoji: 🏃
-colorFrom: purple
-colorTo: indigo
-sdk: static
-pinned: false
-license: mit
-short_description: 'Motion Graphics Studio for Linux: An open-source toolkit for'
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
->>>>>>> 39d3e93 (initial commit)
