@@ -543,16 +543,15 @@ select {
     display: none;
   }
   .main-logo {
-    max-width: 80px; /* Ajuste conforme necessário */
-    height: auto;
+    max-width: 60px; /* Define um tamanho controlado para a imagem */
     margin-bottom: 10px;
-    display: block;
 }
 
 .logo-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
+    align-items: center; /* Centraliza a logo e o texto */
+    text-align: center;
+    padding: 20px 10px;
 }
 }
